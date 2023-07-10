@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
-'''Task 4's module.
-'''
+"""Contains a method that returns a task"""
 import asyncio
-from typing import List
+
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-task_wait_random = __import__('3-tasks').task_wait_random
-
-
-async def task_wait_n(n: int, max_delay: int) -> List[float]:
-    '''Executes task_wait_random n times.
-    '''
-    wait_times = await asyncio.gather(
-        *tuple(map(lambda _: task_wait_random(max_delay), range(n)))
-    )
-    return sorted(wait_times)￼Enter
+def task_wait_random(max_delay: int) -> asyncio.Task:
+    """
+    Returns a task that waits for a random number of seconds
+    Args:
+        max_delay: maximum number of seconds that the task will wait
+    Returns: an asyncio.Task object
+    """
+    return asyncio.create_task(wait_random(max_delay))￼Enter
