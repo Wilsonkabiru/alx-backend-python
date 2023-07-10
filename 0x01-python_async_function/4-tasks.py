@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""
-Tasks
-Write function task_wait_random, takes integer argument max_delay
-Returns a asyncio.Task
-"""
+"""Contains a method that returns a task"""
 import asyncio
 
 wait_random = __import__('0-basic_async_syntax').wait_random
@@ -11,9 +7,9 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
     """
-    Function task_wait_random
-    takes int argument max_delay
-    Returns a async.Task
+    Returns a task that waits for a random number of seconds
+    Args:
+        max_delay: maximum number of seconds that the task will wait
+    Returns: an asyncio.Task object
     """
-    stop = asyncio.create_task(wait_random(max_delay))
-    return stop￼Enter
+    return asyncio.create_task(wait_random(max_delay))
