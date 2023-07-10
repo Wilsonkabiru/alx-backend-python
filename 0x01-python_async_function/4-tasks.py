@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
+'''Task 4's module.
 '''
-Task Import wait_random from 0-basic_async_syntax.
-'''
-
 import asyncio
+from typing import List
 
 
-wait_random = __import__('0-basic_async_syntax').wait_random
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
-def task_wait_random(max_delay: int) -> asyncio.Task:
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
+    '''Executes task_wait_random n times.
     '''
-    To create an asynchronous task for wait_random.
-    '''
-    return asyncio.create_task(wait_random(max_delay))
+    wait_times = await asyncio.gather(
+        *tuple(map(lambda _: task_wait_random(max_delay), range(n)))
+    )
+    return sorted(wait_times)￼Enter
