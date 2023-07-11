@@ -16,7 +16,7 @@ import asyncio
 import time
 
 
-async def measure_runtime() -> float:
+async def measure_runtime()
     '''Runs async comprehension in parallel and returns the total time'''
     comp = __import__('1-async_comprehension').async_comprehension
 
