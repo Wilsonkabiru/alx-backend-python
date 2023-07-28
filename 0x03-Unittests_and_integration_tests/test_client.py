@@ -98,7 +98,7 @@ class TestGithubOrgClient(unittest.TestCase):
             mock_public_repos_url.return_value = test_payload["repos_url"]
             self.assertEqual(
                 GithubOrgClient("google").public_repos(),
-                    [
+                [
                     "episodes.dart",
                     "kratu",
                 ],
